@@ -9,7 +9,11 @@ class HashTable {
       console.log(this.data);
     }
     get(key){
-      return this.data.arr[key];
+      this.data.forEach(element => {
+        if(element[0] === key){
+          console.log(element[1]);
+        }
+      });
     }
     _hash(key) {
       let hash = 0;
@@ -23,6 +27,7 @@ class HashTable {
   const myHashTable = new HashTable(50);
   myHashTable.set('grapes', 10000)
   myHashTable.get('grapes')
+  console.log(myHashTable._hash('grapes')) 
   myHashTable.set('apples', 9)
-  // myHashTable.get('apples')
+  myHashTable.get('apples')
   
