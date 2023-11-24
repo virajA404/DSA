@@ -29,14 +29,49 @@ class HashTable {
     }//O(1)
     get(key){
       let address = this._hash(key);
-      this.data[address].forEach(element => {
-        if(element[0] === key){
-          console.log(element[1]);
-        }else{
-          console.log("Key is not found");
-        }
-      });
+
+      if(this.data[address]){
+        this.data[address].forEach(element => {
+          if(element[0] === key){
+            console.log(element[1]);
+          }
+        })
+      }
+      return undefined;
     }//If no collision = O(1) otherwise O(n)
+
+    keys(){
+      const keysArray = [];
+      for(let i = 0; i < this.data.length; i++){
+        if(this.data[i].length > 0){
+          for(let j = 0; j < this.data[i].length; j++){
+            keysArray.push(this.data[i][j][0])
+          }
+        }
+      }
+      console.log(keysArray)
+
+      
+      // if (!this.data.length) {
+      //   return undefined
+      // }
+      // let result = []
+      // // loop through all the elements
+      // for (let i = 0; i < this.data.length; i++) {
+      //     // if it's not an empty memory cell
+      //     if (this.data[i] && this.data[i].length) {
+      //       // but also loop through all the potential collisions
+      //       if (this.data.length > 1) {
+      //         for (let j = 0; j < this.data[i].length; j++) {
+      //           result.push(this.data[i][j][0])
+      //         }
+      //       } else {
+      //         result.push(this.data[i][0])
+      //       } 
+      //     }
+      // }
+      // return result; 
+    }
   }
   
   const myHashTable = new HashTable(2);
@@ -46,11 +81,13 @@ class HashTable {
   myHashTable.set('mango', 19)
   myHashTable.set('cherry', 92)
   myHashTable.set('banana', 12)
-  console.log(myHashTable._hash('apples')) 
-  console.log(myHashTable._hash('grapes')) 
-  console.log(myHashTable._hash('mango')) 
-  console.log(myHashTable._hash('cherry')) 
-  console.log(myHashTable._hash('banana')) 
+  // console.log(myHashTable._hash('apples')) 
+  // console.log(myHashTable._hash('grapes')) 
+  // console.log(myHashTable._hash('mango')) 
+  // console.log(myHashTable._hash('cherry')) 
+  // console.log(myHashTable._hash('banana')) 
 
-  myHashTable.get('cherry')
-  
+  // myHashTable.get('cherry')
+
+  // console.log(myHashTable.keys());
+  myHashTable.keys();
