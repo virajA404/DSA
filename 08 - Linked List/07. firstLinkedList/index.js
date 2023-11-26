@@ -8,22 +8,23 @@ class LinkedList {
         this.length = 1;
     }
     append(value){
-        if(this.length == 1){
-            this.head.next = {
-                value: value,
-                next: null
-            }
-            // this.tail = this.head.next;
-        }else{
-            this.head.next = {
-                next: {
-                    value: value,
-                    next:null
-                }
-            }
+        // if(this.length == 1){
+        //     this.head.next = {
+        //         value: value,
+        //         next: null
+        //     }
+        //     this.tail = this.head.next;
+        // }else{ 
+        //-------Not needed-------
+        const newNode = {
+            value: value,
+            next: null
         }
-        this.tail = this.head.next;
+
+        this.tail.next = newNode;
+        this.tail = newNode;
         this.length++;
+        return this;
     }
 }
 
