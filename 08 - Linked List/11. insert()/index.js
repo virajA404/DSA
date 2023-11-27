@@ -64,7 +64,7 @@ class LinkedList {
       };
 
       let currentNode = this.head;
-      for (let i = 1; i < index; i++) {
+      for (let i = 0; i < (index - 1); i++) {
         currentNode = currentNode.next;
       }
 
@@ -82,4 +82,5 @@ myLinkedList.append(16);
 myLinkedList.append(24);
 myLinkedList.prepend(1);
 myLinkedList.insert(2, 99);
+myLinkedList.insert(4, 20);
 // myLinkedList.insert(20, 88)
