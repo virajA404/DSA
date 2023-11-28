@@ -71,7 +71,7 @@ class LinkedList {
       newNode.next = currentNode.next;
       currentNode.next = newNode;
       this.length++;
-      // return this.printList();
+      return this.printList();
     }
   }
   remove(index) {
@@ -99,6 +99,7 @@ myLinkedList.append(24);
 myLinkedList.prepend(1);
 myLinkedList.insert(2, 99);
 myLinkedList.insert(4, 20);
-myLinkedList.remove(3);
-myLinkedList.remove(1);
+// myLinkedList.remove(3);
+myLinkedList.remove(6);
+myLinkedList.remove(5);
 // myLinkedList.insert(20, 88)
