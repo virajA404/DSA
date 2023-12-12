@@ -11,25 +11,36 @@ class Stack {
     this.bottom = null;
     this.length = 0;
   }
-  peek() {}
-  push(value) {
-    const newNode = new Node;
-    newNode.value = value;
-    if(this.length == 0){
-      this.bottom = newNode;
-      
-    }
-    this.top = newNode;
-    this.length++;
+  peek() {
+    return this.top;
   }
-  pop() {}
+  push(value) {
+    const newNode = new Node(value);
+    newNode.value = value;
+    if(this.length === 0){
+      this.bottom = newNode;
+      this.top = newNode;
+    }else{
+      const holdingPointer = this.top;
+      this.top = newNode;
+      this.top.next = holdingPointer;
+    }
+    this.length++;
+    return this;
+  }
+  pop() {
+
+  }
   //isEmpty
 }
 
 const myStack = new Stack();
-myStack.push("Discord")
+myStack.push("google")
 myStack.push("Udemy")
+myStack.push("Discord")
+// myStack.push("Instagram")
 console.log(myStack)
+// console.log(myStack.peek());
 
 //Discord
 //Udemy
