@@ -29,11 +29,15 @@ class Stack {
     return this;
   }
   pop() {
-    const holdingPointer = this.top.next;
-    this.top = holdingPointer;
-    this.top.next = null;
-    this.length--;
-    return this;
+    if(!this.top){
+      return null;
+    }else if(this.top === this.bottom){
+      this.bottom = null;
+    }else{
+      this.top = this.top.next; 
+      this.length--;
+      return this;
+    }
   }
   isEmpty(){
     if(this.length === 0){
@@ -48,11 +52,18 @@ const myStack = new Stack();
 myStack.push("google")
 myStack.push("Udemy")
 myStack.push("Discord")
-// myStack.push("Instagram")
 console.log(myStack)
-// console.log(myStack.peek());
+
+console.log(myStack.peek());
+
 console.log(myStack.pop())
+console.log(myStack.pop())
+console.log(myStack.pop())
+
 console.log(myStack.isEmpty())
+
+
+
 //Discord
 //Udemy
 //google
