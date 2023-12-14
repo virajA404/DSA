@@ -13,7 +13,7 @@ class Queue{
     }
 
     peek() {
-
+        return this.first;
     }
     enqueue(value) {
         const newNode = new Node(value);
@@ -25,10 +25,15 @@ class Queue{
             this.last = newNode;   
         }
         this.length++;
+        return this;
     }
     dequeue() {
+        if(this.length === 0){
+            console.log('Queue is empty');
+        }
         this.first = this.first.next;
         this.length--;
+        return this;
     }
     isEmpty() {
         
@@ -39,8 +44,11 @@ const myQueue = new Queue();
 myQueue.enqueue("Joy");
 myQueue.enqueue("Matt");
 myQueue.enqueue("Pavel");
-myQueue.enqueue("Samir");
-console.log(myQueue);
+console.log(myQueue.enqueue("Samir"));
+// console.log(myQueue);
 
-myQueue.dequeue();
-console.log(myQueue);
+
+console.log(myQueue.dequeue());
+console.log(myQueue.dequeue());
+console.log(myQueue.dequeue());
+console.log(myQueue.dequeue());
