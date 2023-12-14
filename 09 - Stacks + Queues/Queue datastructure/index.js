@@ -27,7 +27,8 @@ class Queue{
         this.length++;
     }
     dequeue() {
-
+        this.first = this.first.next;
+        this.length--;
     }
     isEmpty() {
         
@@ -39,4 +40,7 @@ myQueue.enqueue("Joy");
 myQueue.enqueue("Matt");
 myQueue.enqueue("Pavel");
 myQueue.enqueue("Samir");
+console.log(myQueue);
+
+myQueue.dequeue();
 console.log(myQueue);
