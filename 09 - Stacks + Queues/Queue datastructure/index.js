@@ -30,7 +30,10 @@ class Queue{
     dequeue() {
         if(this.length === 0){
             console.log('Queue is empty');
+        }else if(this.length === 1){
+            this.last = null;
         }
+        const holdingPointer = this.first; //to hold the removing value
         this.first = this.first.next;
         this.length--;
         return this;
